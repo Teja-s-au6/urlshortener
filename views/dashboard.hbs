@@ -1,0 +1,43 @@
+<div class="container">
+    {{#if length}}
+    <br><br>
+    <h1>Your Urls</h1>
+    <ol>
+        <div class="row">
+            <div class="col-lg-12">
+                {{#each urls}}
+                <li style="border: 1px solid black">
+                    <h1  style="overflow-wrap: break-word;">originalUrl:<a href="{{this.originalUrl}}" target="_blank">{{this.originalUrl}}</a></h1>
+                    <br>
+                    <h3  style="overflow-wrap: break-word;">shortUrl:<a href="{{this.shortUrl}}" id="short" target="_blank">{{this.shortUrl}}</a></h3>
+                    <br>
+                    <p id="count">count:0</p>
+                    <br>
+                </li>
+                {{/each}}
+                <br><br>
+                <a href='/shorturl/create'><button class="btn btn-success">Create</button></a>
+            </div>
+        </div>
+    </ol>
+    {{else}}
+    <br><br><br><br><br>
+    <h1>Hey {{name}}. Click the button and get the shortUrl</h1>
+   <a href='/shorturl/create'> <button class="btn btn-success">Start here</a></button>
+    {{/if}}
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br>
+</div>
+
+<script>
+    var button = document.getElementById("short");
+    var count1 = document.getElementById("count");
+  count = 0;
+button.onclick = function() {
+  count += 1;
+  count1.innerHTML = "Count: " + count;
+};
+
+</script>
