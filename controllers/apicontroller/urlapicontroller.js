@@ -1,6 +1,9 @@
 var Url = require("../../models/Url");
 var shortid = require("shortid");
+const dotenv = require("dotenv");
+dotenv.config()
 
+const PORT = process.env.PORT || "http://localhost:1234/"
 
 module.exports = {
     urlCreate: function(req, res) {
@@ -9,7 +12,7 @@ module.exports = {
 
         const urlcode = shortid.generate()
         url.originalUrl = req.body.OriginalUrl
-        url.shortUrl = "http://localhost:1234/" +  urlcode
+        url.shortUrl = PORT +  urlcode
         url.urlCode = urlcode
         url.user = user._id;
         user.shorturl.push(url._id)
